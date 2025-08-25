@@ -4,10 +4,19 @@ import Image from "next/image";
 
 export function EmpowermentSection() {
   return (
-    <section className="py-20 bg-gray-50">
+    <section className="pt-5 md:pt-10 pb-5 md:pb-10 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main Empowerment Content */}
-        <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
+        <div className="grid lg:grid-cols-2 gap-4 items-center mb-20 px-10">
+          <div className="relative">
+            <Image
+              src="/images/empower3.png"
+              alt="YPA Empowerment"
+              width={400}
+              height={400}
+              className="object-cover rounded-lg shadow-lg"
+            />
+          </div>
           <div>
             <p className="text-primary font-medium mb-4">Empower</p>
             <h2 className="text-3xl md:text-4xl font-bold font-serif mb-6">
@@ -44,24 +53,6 @@ export function EmpowermentSection() {
                 </span>
               </li>
             </ul>
-            <div className="flex gap-4">
-              <Button className="cursor-pointer">Join</Button>
-              <Button
-                variant="outline"
-                className="cursor-pointer bg-transparent"
-              >
-                Learn More
-              </Button>
-            </div>
-          </div>
-          <div className="relative">
-            <Image
-              src="/bg.png"
-              alt="Woman working on laptop"
-              width={600}
-              height={400}
-              className="rounded-lg shadow-lg"
-            />
           </div>
         </div>
 

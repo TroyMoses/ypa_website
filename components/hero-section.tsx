@@ -11,24 +11,24 @@ const projects = [
     title: "The Mighty YPA Goat Project",
     description:
       "Empowering communities through sustainable goat farming initiatives that provide income generation and food security across Africa.",
-    image: "/african-goat-farming-project-with-young-farmers.png",
+    image: "/images/african-goat-farming-project-with-young-farmers2.png",
     cta: "Learn About Goat Farming",
   },
   {
     id: 2,
-    title: "The Mighty YPA Bee Keeping Project",
-    description:
-      "Supporting youth entrepreneurs in beekeeping ventures that promote environmental conservation while creating sustainable livelihoods.",
-    image: "/african-beekeeping-project-with-modern-hives-and-y.png",
-    cta: "Discover Beekeeping",
-  },
-  {
-    id: 3,
     title: "The Mighty YPA Maize Farming Project",
     description:
       "Revolutionizing maize production through modern farming techniques and technology to ensure food security and economic growth.",
-    image: "/african-maize-farming-project-with-modern-agricult.png",
+    image: "/images/african-maize-farming-project-with-modern-agricult2.png",
     cta: "Explore Maize Farming",
+  },
+  {
+    id: 3,
+    title: "The Mighty YPA Bee Keeping Project",
+    description:
+      "Supporting youth entrepreneurs in beekeeping ventures that promote environmental conservation while creating sustainable livelihoods.",
+    image: "/images/african-beekeeping-project-with-modern-hives-and-y2.png",
+    cta: "Discover Beekeeping",
   },
 ];
 

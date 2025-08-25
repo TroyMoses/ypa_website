@@ -65,7 +65,7 @@ export function Navigation() {
                 </button>
 
                 {activeDropdown === "projects" && (
-                  <div className="absolute left-0 mt-2 w-64 bg-white rounded-md shadow-lg border border-gray-200 z-50">
+                  <div className="absolute left-0 mt-[2px] w-64 bg-white rounded-md shadow-lg border border-gray-200 z-50">
                     <div className="py-2">
                       {/* Agribusiness Projects */}
                       <div className="group relative">
@@ -217,7 +217,7 @@ export function Navigation() {
               <div>
                 <button
                   onClick={() => toggleMobileDropdown("projects")}
-                  className="text-gray-900 hover:text-primary block px-3 py-2 text-base font-medium cursor-pointer w-full text-left flex items-center justify-between"
+                  className="text-gray-900 hover:text-primary px-3 py-2 text-base font-medium cursor-pointer w-full text-left flex items-center justify-between"
                 >
                   YPA Projects
                   <ChevronDown
@@ -233,7 +233,7 @@ export function Navigation() {
                     <div>
                       <button
                         onClick={() => toggleMobileDropdown("agribusiness")}
-                        className="text-gray-700 hover:text-primary block px-3 py-2 text-sm font-medium cursor-pointer w-full text-left flex items-center justify-between"
+                        className="text-gray-700 hover:text-primary px-3 py-2 text-sm font-medium cursor-pointer w-full text-left flex items-center justify-between"
                       >
                         Agribusiness Projects
                         <ChevronDown
@@ -277,7 +277,7 @@ export function Navigation() {
                     <div>
                       <button
                         onClick={() => toggleMobileDropdown("general")}
-                        className="text-gray-700 hover:text-primary block px-3 py-2 text-sm font-medium cursor-pointer w-full text-left flex items-center justify-between"
+                        className="text-gray-700 hover:text-primary px-3 py-2 text-sm font-medium cursor-pointer w-full text-left flex items-center justify-between"
                       >
                         General Projects
                         <ChevronDown
