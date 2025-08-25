@@ -1,6 +1,6 @@
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import Image from "next/image"
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import Image from "next/image";
 
 export function EmpowermentSection() {
   return (
@@ -14,39 +14,49 @@ export function EmpowermentSection() {
               Join Us in Transforming African Agriculture
             </h2>
             <p className="text-gray-600 mb-8 leading-relaxed">
-              Become part of a vibrant community dedicated to sustainable farming. Experience economic empowerment
-              through shared resources and knowledge.
+              Become part of a vibrant community dedicated to sustainable
+              farming. Experience economic empowerment through shared resources
+              and knowledge.
             </p>
             <ul className="space-y-4 mb-8">
               <li className="flex items-start gap-3">
                 <div className="w-6 h-6 rounded-full bg-primary flex items-center justify-center flex-shrink-0 mt-0.5">
                   <div className="w-2 h-2 bg-white rounded-full" />
                 </div>
-                <span className="text-gray-700">Support local farmers and strengthen community ties.</span>
+                <span className="text-gray-700">
+                  Support local farmers and strengthen community ties.
+                </span>
               </li>
               <li className="flex items-start gap-3">
                 <div className="w-6 h-6 rounded-full bg-primary flex items-center justify-center flex-shrink-0 mt-0.5">
                   <div className="w-2 h-2 bg-white rounded-full" />
                 </div>
-                <span className="text-gray-700">Access to training and resources for sustainable practices.</span>
+                <span className="text-gray-700">
+                  Access to training and resources for sustainable practices.
+                </span>
               </li>
               <li className="flex items-start gap-3">
                 <div className="w-6 h-6 rounded-full bg-primary flex items-center justify-center flex-shrink-0 mt-0.5">
                   <div className="w-2 h-2 bg-white rounded-full" />
                 </div>
-                <span className="text-gray-700">Contribute to a greener future for Africa.</span>
+                <span className="text-gray-700">
+                  Contribute to a greener future for Africa.
+                </span>
               </li>
             </ul>
             <div className="flex gap-4">
               <Button className="cursor-pointer">Join</Button>
-              <Button variant="outline" className="cursor-pointer bg-transparent">
+              <Button
+                variant="outline"
+                className="cursor-pointer bg-transparent"
+              >
                 Learn More
               </Button>
             </div>
           </div>
           <div className="relative">
             <Image
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/4-NO6YwvFzvGyF8si0zcftvwYvHmDYqG.png"
+              src="/bg.png"
               alt="Woman working on laptop"
               width={600}
               height={400}
@@ -73,12 +83,18 @@ export function EmpowermentSection() {
                   />
                 </div>
                 <h3 className="text-xl font-semibold font-serif mb-4">
-                  Building Sustainable Futures Through Innovative Agricultural Practices
+                  Building Sustainable Futures Through Innovative Agricultural
+                  Practices
                 </h3>
                 <p className="text-gray-600 mb-6">
-                  We empower youth with modern farming and business skills for sustainable agriculture.
+                  We empower youth with modern farming and business skills for
+                  sustainable agriculture.
                 </p>
-                <Button variant="outline" size="sm" className="cursor-pointer bg-transparent">
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="cursor-pointer bg-transparent"
+                >
                   Learn More
                 </Button>
               </CardContent>
@@ -96,12 +112,18 @@ export function EmpowermentSection() {
                   />
                 </div>
                 <h3 className="text-xl font-semibold font-serif mb-4">
-                  Driving Change Through Sustainable Practices and Community Engagement
+                  Driving Change Through Sustainable Practices and Community
+                  Engagement
                 </h3>
                 <p className="text-gray-600 mb-6">
-                  Our initiatives create lasting impact that benefit communities and the environment.
+                  Our initiatives create lasting impact that benefit communities
+                  and the environment.
                 </p>
-                <Button variant="outline" size="sm" className="cursor-pointer bg-transparent">
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="cursor-pointer bg-transparent"
+                >
                   Join Us
                 </Button>
               </CardContent>
@@ -119,12 +141,18 @@ export function EmpowermentSection() {
                   />
                 </div>
                 <h3 className="text-xl font-semibold font-serif mb-4">
-                  Transforming Lives with a Focus on Continental Agribusiness Development
+                  Transforming Lives with a Focus on Continental Agribusiness
+                  Development
                 </h3>
                 <p className="text-gray-600 mb-6">
-                  Together, we are creating a ripple effect of positive change across Africa.
+                  Together, we are creating a ripple effect of positive change
+                  across Africa.
                 </p>
-                <Button variant="outline" size="sm" className="cursor-pointer bg-transparent">
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="cursor-pointer bg-transparent"
+                >
                   Get Involved
                 </Button>
               </CardContent>
@@ -133,5 +161,5 @@ export function EmpowermentSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }

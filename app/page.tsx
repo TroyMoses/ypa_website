@@ -1,11 +1,11 @@
-import { Navigation } from "@/components/navigation"
-import { HeroSection } from "@/components/hero-section"
-import { EmpowermentSection } from "@/components/empowerment-section"
-import { TeamSection } from "@/components/team-section"
-import { TestimonialsSection } from "@/components/testimonials-section"
-import { ContactSection } from "@/components/contact-section"
-import { NewsletterSignup } from "@/components/newsletter-signup"
-import { Footer } from "@/components/footer"
+import { Navigation } from "@/components/navigation";
+import { HeroSection } from "@/components/hero-section";
+import { EmpowermentSection } from "@/components/empowerment-section";
+import { TeamSection } from "@/components/team-section";
+import { TestimonialsSection } from "@/components/testimonials-section";
+import { ContactSection } from "@/components/contact-section";
+import { NewsletterSignup } from "@/components/newsletter-signup";
+import { Footer } from "@/components/footer";
 
 export default function HomePage() {
   return (
@@ -25,5 +25,5 @@ export default function HomePage() {
       <ContactSection />
       <Footer />
     </main>
-  )
+  );
 }
