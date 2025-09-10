@@ -1,48 +1,44 @@
 import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
-import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import Image from "next/image";
+import { PageHeroSlider } from "@/components/page-hero-slider";
+
+const beekeepingSlides = [
+  {
+    id: 1,
+    title: "The Mighty YPA Bee Keeping Project",
+    description:
+      "Empowering African youth through sustainable beekeeping practices that generate income while preserving our environment.",
+    image: "/images/african-beekeeping-project-with-modern-hives-and-y2.png",
+    cta: "Join This Project",
+    ctaSecondary: "Learn Beekeeping",
+  },
+  {
+    id: 2,
+    title: "Sweet Success Stories",
+    description:
+      "Discover how our beekeeping program has transformed lives and created sustainable income for hundreds of young entrepreneurs.",
+    image: "/images/successful-african-beekeepers-with-honey.png",
+    cta: "Success Stories",
+    ctaSecondary: "Start Your Hive",
+  },
+  {
+    id: 3,
+    title: "Environmental Conservation",
+    description:
+      "Join our mission to create thriving bee colonies that support biodiversity and environmental conservation across Africa.",
+    image: "/images/bee-conservation-environmental-impact.png",
+    cta: "Environmental Impact",
+    ctaSecondary: "Conservation Programs",
+  },
+];
 
 export default function BeekeepingPage() {
   return (
     <main className="min-h-screen">
       <Navigation />
 
-      {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-r from-yellow-50 to-orange-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h1 className="text-4xl md:text-5xl font-bold font-serif text-gray-900 mb-6">
-                The Mighty YPA Bee Keeping Project
-              </h1>
-              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                Empowering African youth through sustainable beekeeping
-                practices that generate income while preserving our environment.
-                Join our mission to create thriving bee colonies across the
-                continent.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="bg-yellow-600 hover:bg-yellow-700">
-                  Join This Project
-                </Button>
-                <Button size="lg" variant="outline">
-                  Learn More
-                </Button>
-              </div>
-            </div>
-            <div className="relative h-96 rounded-lg overflow-hidden">
-              <Image
-                src="/african-beekeepers-working-with-modern-hives.png"
-                alt="Beekeeping project"
-                fill
-                className="object-cover"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
+      <PageHeroSlider slides={beekeepingSlides} />
 
       {/* Project Overview */}
       <section className="py-16">

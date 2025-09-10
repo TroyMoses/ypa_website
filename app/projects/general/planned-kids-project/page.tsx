@@ -1,48 +1,44 @@
 import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
-import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import Image from "next/image";
+import { PageHeroSlider } from "@/components/page-hero-slider";
+
+const plannedKidsSlides = [
+  {
+    id: 1,
+    title: "YPA Planned Kids Project",
+    description:
+      "Empowering families through comprehensive family planning education and child development programs.",
+    image: "/images/happy-african-families-with-children-in-educationa.png",
+    cta: "Join Program",
+    ctaSecondary: "Family Planning",
+  },
+  {
+    id: 2,
+    title: "Building Stronger Communities",
+    description:
+      "Supporting planned parenthood and child welfare initiatives that create healthier, more prosperous families.",
+    image: "/images/strong-african-family-communities.png",
+    cta: "Community Programs",
+    ctaSecondary: "Child Development",
+  },
+  {
+    id: 3,
+    title: "Education & Support Services",
+    description:
+      "Comprehensive support including counseling, education, and resources for families planning their future.",
+    image: "/images/family-education-support-services.png",
+    cta: "Support Services",
+    ctaSecondary: "Educational Resources",
+  },
+];
 
 export default function PlannedKidsProjectPage() {
   return (
     <main className="min-h-screen">
       <Navigation />
 
-      {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-r from-pink-50 to-orange-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h1 className="text-4xl md:text-5xl font-bold font-serif text-gray-900 mb-6">
-                YPA Planned Kids Project
-              </h1>
-              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                Empowering families through comprehensive family planning
-                education and child development programs. Building stronger
-                communities by supporting planned parenthood and child welfare
-                initiatives.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="bg-pink-600 hover:bg-pink-700">
-                  Join Program
-                </Button>
-                <Button size="lg" variant="outline">
-                  Learn More
-                </Button>
-              </div>
-            </div>
-            <div className="relative h-96 rounded-lg overflow-hidden">
-              <Image
-                src="/happy-african-families-with-children-in-educationa.png"
-                alt="Planned kids project"
-                fill
-                className="object-cover"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
+      <PageHeroSlider slides={plannedKidsSlides} />
 
       {/* Project Overview */}
       <section className="py-16">

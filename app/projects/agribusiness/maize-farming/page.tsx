@@ -1,47 +1,44 @@
 import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
-import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import Image from "next/image";
+import { PageHeroSlider } from "@/components/page-hero-slider";
+
+const maizeFarmingSlides = [
+  {
+    id: 1,
+    title: "The Mighty YPA Maize Farming Project",
+    description:
+      "Revolutionizing maize production across Africa through modern farming techniques, quality seeds, and sustainable practices.",
+    image: "/images/african-maize-farming-project-with-modern-agricult2.png",
+    cta: "Join This Project",
+    ctaSecondary: "Learn Modern Techniques",
+  },
+  {
+    id: 2,
+    title: "Food Security Revolution",
+    description:
+      "Building food security one farm at a time through innovative maize production methods and farmer empowerment programs.",
+    image: "/images/food-security-maize-farming-africa.png",
+    cta: "Food Security Impact",
+    ctaSecondary: "Farming Programs",
+  },
+  {
+    id: 3,
+    title: "Technology Meets Tradition",
+    description:
+      "Combining traditional farming wisdom with cutting-edge agricultural technology to maximize maize yields and profitability.",
+    image: "/images/modern-technology-traditional-farming.png",
+    cta: "Technology Solutions",
+    ctaSecondary: "Training Programs",
+  },
+];
 
 export default function MaizeFarmingPage() {
   return (
     <main className="min-h-screen">
       <Navigation />
 
-      {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-r from-green-50 to-yellow-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h1 className="text-4xl md:text-5xl font-bold font-serif text-gray-900 mb-6">
-                The Mighty YPA Maize Farming Project
-              </h1>
-              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                Revolutionizing maize production across Africa through modern
-                farming techniques, quality seeds, and sustainable practices.
-                Building food security one farm at a time.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="bg-green-600 hover:bg-green-700">
-                  Join This Project
-                </Button>
-                <Button size="lg" variant="outline">
-                  Learn More
-                </Button>
-              </div>
-            </div>
-            <div className="relative h-96 rounded-lg overflow-hidden">
-              <Image
-                src="/modern-maize-farming-in-africa-with-young-farmers.png"
-                alt="Maize farming project"
-                fill
-                className="object-cover"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
+      <PageHeroSlider slides={maizeFarmingSlides} />
 
       {/* Project Overview */}
       <section className="py-16">

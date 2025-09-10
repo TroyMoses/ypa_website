@@ -14,6 +14,7 @@ import {
 } from "@/components/ui/card";
 import { toast } from "sonner";
 import { login } from "@/lib/auth";
+import { useAuth } from "@/hooks/use-auth";
 
 export default function AdminLoginPage() {
   const [email, setEmail] = useState("");
@@ -21,12 +22,11 @@ export default function AdminLoginPage() {
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
   const searchParams = useSearchParams();
+  const { login: clientLogin } = useAuth();
 
-  // Get redirect URL and error from search params
   const redirectUrl = searchParams.get("redirect") || "/admin/dashboard";
   const error = searchParams.get("error");
 
-  // Show error message if present
   const React = require("react");
   React.useEffect(() => {
     if (error === "session_expired") {
@@ -42,7 +42,14 @@ export default function AdminLoginPage() {
   interface LoginResult {
     success: boolean;
     error?: string;
+    user?: any;
   }
+
+  const mapEmailToRole = (email: string) => {
+    if (email === "admin@youthplatformafrica.org") return "i.t";
+    if (email === "manager@youthplatformafrica.org") return "customer_service";
+    return "i.t"; // default role
+  };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -59,9 +66,20 @@ export default function AdminLoginPage() {
       } as LoginParams);
 
       if (result.success) {
-        toast.success("Login successful!");
-        router.push(redirectUrl);
-        router.refresh(); // Refresh to update auth state
+        const clientRole = mapEmailToRole(email);
+        const clientSuccess = await clientLogin(
+          email,
+          password,
+          clientRole as any
+        );
+
+        if (clientSuccess) {
+          toast.success("Login successful!");
+          router.push(redirectUrl);
+          router.refresh();
+        } else {
+          toast.error("Authentication sync failed");
+        }
       } else {
         toast.error(result.error || "Invalid credentials");
       }

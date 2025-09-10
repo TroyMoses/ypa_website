@@ -26,11 +26,20 @@ interface AuthContextType {
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
-// Mock user data for demonstration
 const mockUsers: Record<
   string,
   { password: string; name: string; role: UserRole }
 > = {
+  "admin@youthplatformafrica.org": {
+    password: "admin123",
+    name: "Admin User",
+    role: "i.t",
+  },
+  "manager@youthplatformafrica.org": {
+    password: "manager123",
+    name: "Manager User",
+    role: "customer_service",
+  },
   "admin@ypa.org": { password: "admin123", name: "Admin User", role: "i.t" },
   "cs@ypa.org": {
     password: "cs123",

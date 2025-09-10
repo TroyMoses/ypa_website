@@ -1,48 +1,44 @@
 import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
-import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import Image from "next/image";
+import { PageHeroSlider } from "@/components/page-hero-slider";
+
+const pastureGrowingSlides = [
+  {
+    id: 1,
+    title: "The Mighty YPA Pasture Growing Project",
+    description:
+      "Transforming degraded lands into productive pastures that support livestock farming and environmental restoration.",
+    image: "/images/lush-green-pastures-with-cattle-grazing-in-africa.png",
+    cta: "Join This Project",
+    ctaSecondary: "Land Restoration",
+  },
+  {
+    id: 2,
+    title: "Sustainable Land Management",
+    description:
+      "Creating sustainable feed sources for thriving agricultural communities while restoring ecosystem health.",
+    image: "/images/sustainable-pasture-management-africa.png",
+    cta: "Sustainability Programs",
+    ctaSecondary: "Learn Techniques",
+  },
+  {
+    id: 3,
+    title: "Environmental Restoration",
+    description:
+      "Healing the land through innovative pasture establishment that combats desertification and promotes biodiversity.",
+    image: "/images/environmental-restoration-pastures.png",
+    cta: "Environmental Impact",
+    ctaSecondary: "Restoration Projects",
+  },
+];
 
 export default function PastureGrowingPage() {
   return (
     <main className="min-h-screen">
       <Navigation />
 
-      {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-r from-green-50 to-blue-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h1 className="text-4xl md:text-5xl font-bold font-serif text-gray-900 mb-6">
-                The Mighty YPA Pasture Growing Project
-              </h1>
-              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                Transforming degraded lands into productive pastures that
-                support livestock farming and environmental restoration.
-                Creating sustainable feed sources for thriving agricultural
-                communities.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="bg-green-600 hover:bg-green-700">
-                  Join This Project
-                </Button>
-                <Button size="lg" variant="outline">
-                  Learn More
-                </Button>
-              </div>
-            </div>
-            <div className="relative h-96 rounded-lg overflow-hidden">
-              <Image
-                src="/lush-green-pastures-with-cattle-grazing-in-africa.png"
-                alt="Pasture growing project"
-                fill
-                className="object-cover"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
+      <PageHeroSlider slides={pastureGrowingSlides} />
 
       {/* Project Overview */}
       <section className="py-16">

@@ -1,24 +1,46 @@
-import { Navigation } from "@/components/navigation"
-import { Footer } from "@/components/footer"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import Image from "next/image"
+import { Navigation } from "@/components/navigation";
+import { Footer } from "@/components/footer";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { PageHeroSlider } from "@/components/page-hero-slider";
+import Image from "next/image";
+
+const aboutSlides = [
+  {
+    id: 1,
+    title: "About Youth Platform Africa",
+    description:
+      "Leading Pan-African agribusiness organization committed to empowering individuals and driving sustainable change across the continent.",
+    image: "/images/african-youth-in-agriculture-leadership.png",
+    cta: "Our Mission",
+    ctaSecondary: "Join Our Movement",
+  },
+  {
+    id: 2,
+    title: "Empowering African Youth",
+    description:
+      "We believe in the power of young people to transform agriculture and create sustainable livelihoods across Africa.",
+    image: "/images/young-african-farmers-working-together.png",
+    cta: "Our Impact",
+    ctaSecondary: "Get Involved",
+  },
+  {
+    id: 3,
+    title: "Building Sustainable Communities",
+    description:
+      "Through innovative agribusiness solutions, we're fostering economic growth, food security, and community development.",
+    image: "/images/sustainable-african-farming-communities.png",
+    cta: "Our Programs",
+    ctaSecondary: "Partner With Us",
+  },
+];
 
 export default function AboutPage() {
   return (
     <main className="min-h-screen">
       <Navigation />
 
-      {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-r from-primary/10 to-primary/5">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold font-serif mb-6">About Youth Platform Africa</h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Leading Pan-African agribusiness organization committed to empowering individuals and driving sustainable
-            change across the continent.
-          </p>
-        </div>
-      </section>
+      <PageHeroSlider slides={aboutSlides} />
 
       {/* Mission & Vision */}
       <section className="py-20">
@@ -26,19 +48,26 @@ export default function AboutPage() {
           <div className="grid md:grid-cols-2 gap-12">
             <Card>
               <CardContent className="p-8">
-                <h2 className="text-2xl font-bold font-serif mb-4">Our Mission</h2>
+                <h2 className="text-2xl font-bold font-serif mb-4">
+                  Our Mission
+                </h2>
                 <p className="text-gray-600 leading-relaxed">
-                  To empower youth across Africa through innovative agribusiness solutions, fostering sustainable
-                  practices that drive economic growth, food security, and community development.
+                  To empower youth across Africa through innovative agribusiness
+                  solutions, fostering sustainable practices that drive economic
+                  growth, food security, and community development.
                 </p>
               </CardContent>
             </Card>
             <Card>
               <CardContent className="p-8">
-                <h2 className="text-2xl font-bold font-serif mb-4">Our Vision</h2>
+                <h2 className="text-2xl font-bold font-serif mb-4">
+                  Our Vision
+                </h2>
                 <p className="text-gray-600 leading-relaxed">
-                  A thriving Africa where young people lead sustainable agricultural transformation, creating prosperity
-                  for communities while preserving our environment for future generations.
+                  A thriving Africa where young people lead sustainable
+                  agricultural transformation, creating prosperity for
+                  communities while preserving our environment for future
+                  generations.
                 </p>
               </CardContent>
             </Card>
@@ -53,16 +82,21 @@ export default function AboutPage() {
             <div>
               <h2 className="text-3xl font-bold font-serif mb-6">Our Story</h2>
               <p className="text-gray-600 mb-6 leading-relaxed">
-                Founded with a vision to transform African agriculture, Youth Platform Africa began as a grassroots
-                initiative in Uganda. Today, we've grown into a continental movement, empowering thousands of young
-                farmers and entrepreneurs across East Africa.
+                Founded with a vision to transform African agriculture, Youth
+                Platform Africa began as a grassroots initiative in Uganda.
+                Today, we've grown into a continental movement, empowering
+                thousands of young farmers and entrepreneurs across East Africa.
               </p>
               <p className="text-gray-600 mb-6 leading-relaxed">
-                Our journey started with the recognition that Africa's agricultural potential could only be unlocked
-                through the energy, innovation, and dedication of its youth. We provide the tools, training, and support
-                systems necessary for young people to succeed in agribusiness.
+                Our journey started with the recognition that Africa's
+                agricultural potential could only be unlocked through the
+                energy, innovation, and dedication of its youth. We provide the
+                tools, training, and support systems necessary for young people
+                to succeed in agribusiness.
               </p>
-              <Button className="cursor-pointer">Learn More About Our Impact</Button>
+              <Button className="cursor-pointer">
+                Learn More About Our Impact
+              </Button>
             </div>
             <div>
               <Image
@@ -81,9 +115,12 @@ export default function AboutPage() {
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold font-serif mb-4">Our Core Values</h2>
+            <h2 className="text-3xl font-bold font-serif mb-4">
+              Our Core Values
+            </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              These principles guide everything we do and shape our approach to empowering African youth.
+              These principles guide everything we do and shape our approach to
+              empowering African youth.
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
@@ -92,9 +129,12 @@ export default function AboutPage() {
                 <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <div className="w-8 h-8 bg-primary rounded-full"></div>
                 </div>
-                <h3 className="text-xl font-semibold font-serif mb-3">Sustainability</h3>
+                <h3 className="text-xl font-semibold font-serif mb-3">
+                  Sustainability
+                </h3>
                 <p className="text-gray-600">
-                  We promote practices that protect our environment while ensuring long-term agricultural productivity.
+                  We promote practices that protect our environment while
+                  ensuring long-term agricultural productivity.
                 </p>
               </CardContent>
             </Card>
@@ -103,9 +143,12 @@ export default function AboutPage() {
                 <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <div className="w-8 h-8 bg-primary rounded-full"></div>
                 </div>
-                <h3 className="text-xl font-semibold font-serif mb-3">Empowerment</h3>
+                <h3 className="text-xl font-semibold font-serif mb-3">
+                  Empowerment
+                </h3>
                 <p className="text-gray-600">
-                  We believe in equipping young people with the knowledge, skills, and resources they need to succeed.
+                  We believe in equipping young people with the knowledge,
+                  skills, and resources they need to succeed.
                 </p>
               </CardContent>
             </Card>
@@ -114,9 +157,12 @@ export default function AboutPage() {
                 <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <div className="w-8 h-8 bg-primary rounded-full"></div>
                 </div>
-                <h3 className="text-xl font-semibold font-serif mb-3">Innovation</h3>
+                <h3 className="text-xl font-semibold font-serif mb-3">
+                  Innovation
+                </h3>
                 <p className="text-gray-600">
-                  We embrace new technologies and approaches that can transform African agriculture.
+                  We embrace new technologies and approaches that can transform
+                  African agriculture.
                 </p>
               </CardContent>
             </Card>
@@ -126,5 +172,5 @@ export default function AboutPage() {
 
       <Footer />
     </main>
-  )
+  );
 }

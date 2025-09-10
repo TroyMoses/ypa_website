@@ -1,48 +1,44 @@
 import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
-import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import Image from "next/image";
+import { PageHeroSlider } from "@/components/page-hero-slider";
+
+const realEstateSlides = [
+  {
+    id: 1,
+    title: "YPA Real Estate Project",
+    description:
+      "Building affordable housing solutions and creating real estate investment opportunities for African youth.",
+    image: "/images/modern-affordable-housing-development-in-africa.png",
+    cta: "Explore Properties",
+    ctaSecondary: "Investment Options",
+  },
+  {
+    id: 2,
+    title: "Transforming Communities",
+    description:
+      "Creating sustainable property development and homeownership programs that transform communities across Africa.",
+    image: "/images/community-transformation-real-estate.png",
+    cta: "Community Projects",
+    ctaSecondary: "Homeownership Programs",
+  },
+  {
+    id: 3,
+    title: "Investment Opportunities",
+    description:
+      "Discover lucrative real estate investment opportunities with flexible payment plans and strong returns.",
+    image: "/images/real-estate-investment-opportunities.png",
+    cta: "Investment Plans",
+    ctaSecondary: "ROI Calculator",
+  },
+];
 
 export default function RealEstatePage() {
   return (
     <main className="min-h-screen">
       <Navigation />
 
-      {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-r from-blue-50 to-purple-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h1 className="text-4xl md:text-5xl font-bold font-serif text-gray-900 mb-6">
-                YPA Real Estate Project
-              </h1>
-              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                Building affordable housing solutions and creating real estate
-                investment opportunities for African youth. Transforming
-                communities through sustainable property development and
-                homeownership programs.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="bg-blue-600 hover:bg-blue-700">
-                  Explore Properties
-                </Button>
-                <Button size="lg" variant="outline">
-                  Investment Options
-                </Button>
-              </div>
-            </div>
-            <div className="relative h-96 rounded-lg overflow-hidden">
-              <Image
-                src="/modern-affordable-housing-development-in-africa.png"
-                alt="Real estate project"
-                fill
-                className="object-cover"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
+      <PageHeroSlider slides={realEstateSlides} />
 
       {/* Project Overview */}
       <section className="py-16">

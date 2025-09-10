@@ -1,47 +1,44 @@
 import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
-import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import Image from "next/image";
+import { PageHeroSlider } from "@/components/page-hero-slider";
+
+const goatKeepingSlides = [
+  {
+    id: 1,
+    title: "The Mighty YPA Goat Keeping Project",
+    description:
+      "Empowering communities through sustainable goat farming that provides protein, income, and economic stability.",
+    image: "/images/african-goat-farming-project-with-young-farmers2.png",
+    cta: "Join This Project",
+    ctaSecondary: "Learn Goat Farming",
+  },
+  {
+    id: 2,
+    title: "Building Resilient Livelihoods",
+    description:
+      "Creating sustainable income streams and food security through comprehensive goat farming programs across rural Africa.",
+    image: "/images/resilient-goat-farming-communities.png",
+    cta: "Community Impact",
+    ctaSecondary: "Start Your Farm",
+  },
+  {
+    id: 3,
+    title: "From Farm to Market",
+    description:
+      "Complete value chain support from breeding and care to marketing and sales, ensuring profitable goat farming ventures.",
+    image: "/images/goat-farming-value-chain-africa.png",
+    cta: "Market Access",
+    ctaSecondary: "Business Support",
+  },
+];
 
 export default function GoatKeepingPage() {
   return (
     <main className="min-h-screen">
       <Navigation />
 
-      {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-r from-orange-50 to-red-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h1 className="text-4xl md:text-5xl font-bold font-serif text-gray-900 mb-6">
-                The Mighty YPA Goat Keeping Project
-              </h1>
-              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                Empowering communities through sustainable goat farming that
-                provides protein, income, and economic stability. Building
-                resilient livelihoods across rural Africa.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="bg-orange-600 hover:bg-orange-700">
-                  Join This Project
-                </Button>
-                <Button size="lg" variant="outline">
-                  Learn More
-                </Button>
-              </div>
-            </div>
-            <div className="relative h-96 rounded-lg overflow-hidden">
-              <Image
-                src="/african-goat-farming-with-young-herders.png"
-                alt="Goat keeping project"
-                fill
-                className="object-cover"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
+      <PageHeroSlider slides={goatKeepingSlides} />
 
       {/* Project Overview */}
       <section className="py-16">
