@@ -1,15 +1,22 @@
-"use client"
+"use client";
 
-import type React from "react"
+import type React from "react";
 
-import { useState } from "react"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Mail, Phone, MapPin, CheckCircle } from "lucide-react"
-import { toast } from "sonner"
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { Mail, Phone, MapPin, CheckCircle } from "lucide-react";
+import { toast } from "sonner";
+import { submitContactForm } from "@/lib/server-actions";
 
 export function ContactSection() {
   const [formData, setFormData] = useState({
@@ -18,71 +25,77 @@ export function ContactSection() {
     email: "",
     subject: "",
     message: "",
-    priority: "medium",
-  })
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [isSubmitted, setIsSubmitted] = useState(false)
+    priority: "medium" as "low" | "medium" | "high",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
+    e.preventDefault();
 
-    if (!formData.firstName || !formData.lastName || !formData.email || !formData.subject || !formData.message) {
-      toast.error("Please fill in all required fields")
-      return
+    if (
+      !formData.firstName ||
+      !formData.lastName ||
+      !formData.email ||
+      !formData.subject ||
+      !formData.message
+    ) {
+      toast.error("Please fill in all required fields");
+      return;
     }
 
-    setIsSubmitting(true)
+    setIsSubmitting(true);
     try {
-      // Mock API call - in real implementation, this would send to backend
-      await new Promise((resolve) => setTimeout(resolve, 1000))
+      const result = await submitContactForm(formData);
 
-      // Mock saving to feedback system
-      const feedbackData = {
-        id: Date.now(),
-        name: `${formData.firstName} ${formData.lastName}`,
-        email: formData.email,
-        subject: formData.subject,
-        message: formData.message,
-        priority: formData.priority,
-        status: "pending",
-        createdAt: new Date().toISOString(),
+      if (result.success) {
+        setIsSubmitted(true);
+        toast.success(
+          result.message ||
+            "Message sent successfully! We'll get back to you soon."
+        );
+
+        // Reset form
+        setFormData({
+          firstName: "",
+          lastName: "",
+          email: "",
+          subject: "",
+          message: "",
+          priority: "medium",
+        });
+      } else {
+        toast.error(
+          result.error || "Failed to send message. Please try again."
+        );
       }
-
-      // In real implementation, this would be sent to the backend
-      console.log("Feedback submitted:", feedbackData)
-
-      setIsSubmitted(true)
-      toast.success("Message sent successfully! We'll get back to you soon.")
-
-      // Reset form
-      setFormData({
-        firstName: "",
-        lastName: "",
-        email: "",
-        subject: "",
-        message: "",
-        priority: "medium",
-      })
     } catch (error) {
-      toast.error("Failed to send message. Please try again.")
+      console.error("[v0] Contact form error:", error);
+      toast.error("Failed to send message. Please try again.");
     } finally {
-      setIsSubmitting(false)
+      setIsSubmitting(false);
     }
-  }
+  };
 
   const handleInputChange = (field: string, value: string) => {
-    setFormData((prev) => ({ ...prev, [field]: value }))
-  }
+    setFormData((prev) => ({ ...prev, [field]: value }));
+  };
 
   return (
     <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* CTA Section */}
         <div className="bg-gray-50 rounded-lg p-8 text-center mb-16">
-          <h2 className="text-2xl md:text-3xl font-bold font-serif mb-4">Join the Movement for Change</h2>
-          <p className="text-gray-600 mb-6">Support sustainable agribusiness and empower youth today!</p>
+          <h2 className="text-2xl md:text-3xl font-bold font-serif mb-4">
+            Join the Movement for Change
+          </h2>
+          <p className="text-gray-600 mb-6">
+            Support sustainable agribusiness and empower youth today!
+          </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button className="bg-green-600 hover:bg-green-700 cursor-pointer">Learn More</Button>
+            <Button className="bg-green-600 hover:bg-green-700 cursor-pointer">
+              Learn More
+            </Button>
             <Button variant="outline" className="cursor-pointer bg-transparent">
               Contact
             </Button>
@@ -93,8 +106,12 @@ export function ContactSection() {
         <div className="grid lg:grid-cols-2 gap-12">
           <div>
             <p className="text-primary font-medium mb-4">Connect</p>
-            <h2 className="text-3xl md:text-4xl font-bold font-serif mb-6">Contact Us</h2>
-            <p className="text-gray-600 mb-8">We're here to assist you with any inquiries.</p>
+            <h2 className="text-3xl md:text-4xl font-bold font-serif mb-6">
+              Contact Us
+            </h2>
+            <p className="text-gray-600 mb-8">
+              We're here to assist you with any inquiries.
+            </p>
 
             <div className="space-y-6">
               <div className="flex items-start gap-4">
@@ -125,8 +142,13 @@ export function ContactSection() {
                 </div>
                 <div>
                   <h3 className="font-semibold mb-1">Office</h3>
-                  <p className="text-gray-600">123 Buganda Road, Kampala, Uganda</p>
-                  <Button variant="link" className="p-0 h-auto text-primary cursor-pointer">
+                  <p className="text-gray-600">
+                    123 Buganda Road, Kampala, Uganda
+                  </p>
+                  <Button
+                    variant="link"
+                    className="p-0 h-auto text-primary cursor-pointer"
+                  >
                     Get Directions
                   </Button>
                 </div>
@@ -139,9 +161,12 @@ export function ContactSection() {
               {isSubmitted ? (
                 <div className="text-center py-8">
                   <CheckCircle className="h-16 w-16 text-green-600 mx-auto mb-4" />
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">Message Sent Successfully!</h3>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                    Message Sent Successfully!
+                  </h3>
                   <p className="text-gray-600 mb-6">
-                    Thank you for contacting us. We'll review your message and get back to you within 24 hours.
+                    Thank you for contacting us. We'll review your message and
+                    get back to you within 24 hours.
                   </p>
                   <Button
                     onClick={() => setIsSubmitted(false)}
@@ -155,46 +180,69 @@ export function ContactSection() {
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-sm font-medium mb-2">First Name *</label>
+                      <label className="block text-sm font-medium mb-2">
+                        First Name *
+                      </label>
                       <Input
                         placeholder="Your first name"
                         value={formData.firstName}
-                        onChange={(e) => handleInputChange("firstName", e.target.value)}
+                        onChange={(e) =>
+                          handleInputChange("firstName", e.target.value)
+                        }
                         required
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium mb-2">Last Name *</label>
+                      <label className="block text-sm font-medium mb-2">
+                        Last Name *
+                      </label>
                       <Input
                         placeholder="Your last name"
                         value={formData.lastName}
-                        onChange={(e) => handleInputChange("lastName", e.target.value)}
+                        onChange={(e) =>
+                          handleInputChange("lastName", e.target.value)
+                        }
                         required
                       />
                     </div>
                   </div>
                   <div>
-                    <label className="block text-sm font-medium mb-2">Email *</label>
+                    <label className="block text-sm font-medium mb-2">
+                      Email *
+                    </label>
                     <Input
                       type="email"
                       placeholder="your.email@example.com"
                       value={formData.email}
-                      onChange={(e) => handleInputChange("email", e.target.value)}
+                      onChange={(e) =>
+                        handleInputChange("email", e.target.value)
+                      }
                       required
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium mb-2">Subject *</label>
+                    <label className="block text-sm font-medium mb-2">
+                      Subject *
+                    </label>
                     <Input
                       placeholder="How can we help you?"
                       value={formData.subject}
-                      onChange={(e) => handleInputChange("subject", e.target.value)}
+                      onChange={(e) =>
+                        handleInputChange("subject", e.target.value)
+                      }
                       required
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium mb-2">Priority</label>
-                    <Select value={formData.priority} onValueChange={(value) => handleInputChange("priority", value)}>
+                    <label className="block text-sm font-medium mb-2">
+                      Priority
+                    </label>
+                    <Select
+                      value={formData.priority}
+                      onValueChange={(value: "low" | "medium" | "high") =>
+                        handleInputChange("priority", value)
+                      }
+                    >
                       <SelectTrigger>
                         <SelectValue />
                       </SelectTrigger>
@@ -206,19 +254,29 @@ export function ContactSection() {
                     </Select>
                   </div>
                   <div>
-                    <label className="block text-sm font-medium mb-2">Message *</label>
+                    <label className="block text-sm font-medium mb-2">
+                      Message *
+                    </label>
                     <Textarea
                       placeholder="Tell us more about your inquiry..."
                       rows={4}
                       value={formData.message}
-                      onChange={(e) => handleInputChange("message", e.target.value)}
+                      onChange={(e) =>
+                        handleInputChange("message", e.target.value)
+                      }
                       required
                     />
                   </div>
-                  <Button type="submit" className="w-full cursor-pointer" disabled={isSubmitting}>
+                  <Button
+                    type="submit"
+                    className="w-full cursor-pointer"
+                    disabled={isSubmitting}
+                  >
                     {isSubmitting ? "Sending..." : "Send Message"}
                   </Button>
-                  <p className="text-xs text-gray-500 text-center">* Required fields. We'll respond within 24 hours.</p>
+                  <p className="text-xs text-gray-500 text-center">
+                    * Required fields. We'll respond within 24 hours.
+                  </p>
                 </form>
               )}
             </CardContent>
@@ -226,5 +284,5 @@ export function ContactSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }

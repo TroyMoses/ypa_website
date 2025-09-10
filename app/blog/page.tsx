@@ -1,10 +1,41 @@
-import { Navigation } from "@/components/navigation"
-import { Footer } from "@/components/footer"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Calendar, User, ArrowRight } from "lucide-react"
-import Image from "next/image"
+import { Navigation } from "@/components/navigation";
+import { Footer } from "@/components/footer";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Calendar, User, ArrowRight } from "lucide-react";
+import { PageHeroSlider } from "@/components/page-hero-slider";
+import Image from "next/image";
+
+const blogSlides = [
+  {
+    id: 1,
+    title: "Blog & Articles",
+    description:
+      "Insights, stories, and expert knowledge on sustainable agriculture, youth empowerment, and agribusiness development in Africa.",
+    image: "/images/african-agricultural-knowledge-sharing.png",
+    cta: "Latest Articles",
+    ctaSecondary: "Subscribe to Newsletter",
+  },
+  {
+    id: 2,
+    title: "Agricultural Innovation Stories",
+    description:
+      "Discover how young entrepreneurs are revolutionizing farming practices and creating sustainable solutions across Africa.",
+    image: "/images/innovative-farming-techniques-africa.png",
+    cta: "Innovation Stories",
+    ctaSecondary: "Share Your Story",
+  },
+  {
+    id: 3,
+    title: "Expert Insights & Research",
+    description:
+      "Access cutting-edge research, expert analysis, and practical guides for modern agricultural practices.",
+    image: "/images/agricultural-research-and-development.png",
+    cta: "Research Articles",
+    ctaSecondary: "Contribute Content",
+  },
+];
 
 const blogPosts = [
   {
@@ -67,7 +98,7 @@ const blogPosts = [
     readTime: "5 min read",
     image: "/blog-market-access.png",
   },
-]
+];
 
 const categories = [
   "All",
@@ -77,23 +108,14 @@ const categories = [
   "Success Stories",
   "Climate",
   "Market Access",
-]
+];
 
 export default function BlogPage() {
   return (
     <main className="min-h-screen">
       <Navigation />
 
-      {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-r from-primary/10 to-primary/5">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold font-serif mb-6">Blog & Articles</h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Insights, stories, and expert knowledge on sustainable agriculture, youth empowerment, and agribusiness
-            development in Africa.
-          </p>
-        </div>
-      </section>
+      <PageHeroSlider slides={blogSlides} />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         {/* Category Filter */}
@@ -128,7 +150,9 @@ export default function BlogPage() {
                 <Badge variant="secondary" className="w-fit mb-3">
                   {blogPosts[0].category}
                 </Badge>
-                <h2 className="text-2xl font-bold font-serif mb-4">{blogPosts[0].title}</h2>
+                <h2 className="text-2xl font-bold font-serif mb-4">
+                  {blogPosts[0].title}
+                </h2>
                 <p className="text-gray-600 mb-6">{blogPosts[0].excerpt}</p>
                 <div className="flex items-center gap-4 text-sm text-gray-500 mb-6">
                   <div className="flex items-center gap-1">
@@ -167,7 +191,9 @@ export default function BlogPage() {
                   </Badge>
                 </div>
                 <div className="p-6">
-                  <h3 className="text-lg font-semibold font-serif mb-3">{post.title}</h3>
+                  <h3 className="text-lg font-semibold font-serif mb-3">
+                    {post.title}
+                  </h3>
                   <p className="text-gray-600 text-sm mb-4">{post.excerpt}</p>
                   <div className="flex items-center gap-4 text-xs text-gray-500 mb-4">
                     <div className="flex items-center gap-1">
@@ -180,8 +206,14 @@ export default function BlogPage() {
                     </div>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="text-xs text-gray-500">{post.readTime}</span>
-                    <Button variant="outline" size="sm" className="cursor-pointer bg-transparent">
+                    <span className="text-xs text-gray-500">
+                      {post.readTime}
+                    </span>
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      className="cursor-pointer bg-transparent"
+                    >
                       Read More
                     </Button>
                   </div>
@@ -193,7 +225,11 @@ export default function BlogPage() {
 
         {/* Load More */}
         <div className="text-center mt-12">
-          <Button variant="outline" size="lg" className="cursor-pointer bg-transparent">
+          <Button
+            variant="outline"
+            size="lg"
+            className="cursor-pointer bg-transparent"
+          >
             Load More Articles
           </Button>
         </div>
@@ -201,5 +237,5 @@ export default function BlogPage() {
 
       <Footer />
     </main>
-  )
+  );
 }
